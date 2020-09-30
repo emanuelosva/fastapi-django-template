@@ -17,18 +17,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #              Security               #
 #######################################
 
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-PRODUCTION = os.getenv("PRODUCTION_ENV") or False
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv("DEBUG_MODE")
 
-DEBUG = not PRODUCTION
-
+# TODO: Change your domain names here.
 ALLOWED_HOSTS = []
 
 
 #######################################
 #        Application definition       #
 #######################################
+
+# Port for FastAPI process
+PORT = os.getenv("PORT")
+
+# Server host for application
+# If the web client is hosted sepparately of
+# the backend, use the frontedn server host.
+SERVER_HOST = os.getenv("SERVER_HOST")
 
 INSTALLED_APPS = [
     # Django Apps
@@ -132,7 +141,11 @@ USE_TZ = True
 #               Mailing               #
 #######################################
 
+# Your private api key
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+
+# The domain from email will be sended
+EMAIL_DOMAIM = os.getenv("EMAIL_DOMAIM")
 
 
 #######################################
