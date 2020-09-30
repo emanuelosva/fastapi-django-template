@@ -1,5 +1,5 @@
 """
-Admin Panel settings for Users
+Admin Panel settings for Users.
 """
 
 from django.contrib import admin
