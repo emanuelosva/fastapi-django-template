@@ -20,3 +20,5 @@ RUN bash -c "if [ $INSTALL_DEV == 'true' ] ; then poetry install --no-root ; els
 COPY ./app /app
 
 EXPOSE 3000
+
+EXPOSE 8000

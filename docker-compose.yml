@@ -10,15 +10,25 @@ services:
       - ./app:/app
     env_file:
       - ./app/.env
-    command: >
-      bash -c "python3 manage.py makemigrations
-      && python3 manage.py migrate
-      && uvicorn app.wsgi:app --port=3000 --host=0.0.0.0"
+    command: uvicorn app.wsgi:app --port=3000 --host=0.0.0.0
     restart: on-failure
+    depends_on:
+      - db
+      - admin
     build:
       context: .
       args:
         INSTALL_DEV: ${INSTALL_DEV-false}
+  admin:
+    container_name: admin
+    image: app_server
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/appp
+    env_file:
+      - ./app/.env
+    command: bash -c "python3 manage.py runserver 0.0.0.0:8000 --noreload"
   db:
     container_name: db
     image: postgres:12
