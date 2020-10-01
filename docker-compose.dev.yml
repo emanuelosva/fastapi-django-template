@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: app
+    image: app_server
+    ports:
+      - 3000:3000
+    volumes:
+      - ./app:/app
+    env_file:
+      - ./app/.env
+    command: uvicorn app.wsgi:app --port=3000 --host=0.0.0.0 --reload
+    restart: on-failure
+    depends_on:
+      - db
+    build:
+      context: .
+      args:
+        INSTALL_DEV: ${INSTALL_DEV-true}
+  db:
+    container_name: db
+    image: postgres:12
+    volumes:
+      - app-db-data:/var/lib/postgresql/pgdata
+    env_file:
+      - ./app/.env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+volumes:
+  app-db-data:
