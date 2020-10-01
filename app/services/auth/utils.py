@@ -32,7 +32,7 @@ def create_access_token(email: str, recovery_password: bool = False) -> str:
 
     Params:
     - email: str - The user email
-    - recovery_password: bool - Indicate if the must have a short expiration time
+    - recovery_password: bool - Indicate if the token must have a short expiration time
     Return:
     - token: str - A encoded JWT
     """
