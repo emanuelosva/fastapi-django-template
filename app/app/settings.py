@@ -1,5 +1,5 @@
 """
-Django settings for {{ app }} project.
+Django settings for {{ project_name }} project.
 """
 
 import os

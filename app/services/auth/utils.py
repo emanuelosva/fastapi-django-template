@@ -17,7 +17,7 @@ from users.shcemas import User, UserDto
 #       Auth & Seciruty Constants     #
 #######################################
 
-COOKIE_SESSION_NAME = "oreo_session_key"
+COOKIE_SESSION_NAME = "oreo_session_key" # You can change it and keep secret
 auth_schema = APIKeyCookie(name=COOKIE_SESSION_NAME)
 
 
@@ -49,7 +49,7 @@ def create_access_token(email: str, recovery_password: bool = False) -> str:
 
 def get_from_verify_token(token: str) -> str:
     """
-    Verify a encoded token and return the email in payload if is valid
+    Verify a encoded token and return the email in payload if is valid.
 
     Params:
     - token: str - The encoded JWT
@@ -67,7 +67,7 @@ def get_from_verify_token(token: str) -> str:
 def get_auth_user(token: str = Depends(auth_schema)) -> UserDto:
     """
     Extract the token within the cookie session from the request
-    object and verify it, then use the payload to find the user info
+    object and verify it, then use the payload to find the user info.
 
     Params:
     - token: str - The encode JWT in cookie request

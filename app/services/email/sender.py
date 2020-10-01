@@ -40,7 +40,6 @@ class EmailSender:
         Create a new sendgrid email object.
 
         Params:
-        ------
         - to_list: List[str] - The recipients list.
         - subject: str - The email subject.
         - html_content: str - HTML text to fill the email.
@@ -48,7 +47,6 @@ class EmailSender:
         - content_type: str - The content type of the image.
         - send_at: datetime - The datetime when the email must be sended.
         Return:
-        ------
         - message: Mail - The sendgrid email object.
         """
         message = mail.Mail()
@@ -81,7 +79,6 @@ class EmailSender:
         Send the email.
 
         Params:
-        ------
         email_to_send: Mail - The sendgrid email object to send.
         """
         try:

@@ -1,5 +1,5 @@
 """
-ASGI config for {app} project.
+ASGI config for {{ project_name }} project.
 """
 
 import os

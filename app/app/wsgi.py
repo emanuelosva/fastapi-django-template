@@ -1,5 +1,5 @@
 """
-WSGI config for {app} project.
+WSGI config for {{ project_name }} project.
 """
 
 import os
@@ -24,14 +24,15 @@ application = get_wsgi_application()
 # This schema allows to the fastAPI application can access to
 # the django environ and application process.
 # The principal usage of this schema is access to DjangoORM
-# in the fastAPI process.
+# in the FastAPI process.
 
 from app.urls import api_router
 
 app = FastAPI(
-    title="{{ app }}",
-    description="A fastAPI-Django integration template",
+    title="{{ project_name }}",
+    description="TODO...",
     version="1.0.0",
 )
 
+# The api_route instance contain all routers.
 app.include_router(api_router, prefix="/api")
