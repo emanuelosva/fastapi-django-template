@@ -202,6 +202,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-# Migrations (only on development)
-**/**/migrations/**
